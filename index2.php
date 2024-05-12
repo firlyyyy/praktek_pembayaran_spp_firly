@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group mb-2">
                                 <label>password</label>
-                                <input type="text" name="nis" class="form-control" placeholder="masukkan password anda..." required>
+                                <input type="text" name="password" class="form-control" placeholder="masukkan password anda..." required>
                             </div>
                             <div class="form-group mb-2">
                                 <button type="submit" class="btn btn-primary"> LOGIN </button>
