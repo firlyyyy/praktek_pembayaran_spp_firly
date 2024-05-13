@@ -6,7 +6,7 @@ include '../koneksi.php';
 $sql = "select * from spp where id_spp='$id_spp'";
 $query = mysqli_query($koneksi, $sql);
 $data = mysqli_fetch_array($query);
-    ?>
+?>
 
 <h5>halaman edit data SPP</h5>
 <a href="?url=spp" class="btn btn-primary"> Kembali </a>
