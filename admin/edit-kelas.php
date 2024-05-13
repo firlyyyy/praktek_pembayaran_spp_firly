@@ -1,0 +1,26 @@
+<?php
+
+$id_kelas = $_GET['id_kelas'];
+// var_dump($_GET);
+include '../koneksi.php';
+$sql = "select * from kelas where id_kelas='$id_kelas'";
+$query = mysqli_query($koneksi, $sql);
+$data = mysqli_fetch_array($query);
+    ?>
+
+<h5>halaman edit data kelas</h5>
+<a href="?url=kelas" class="btn btn-primary"> Kembali </a>
+<form method="post" action="?url=proses-edit-kelas&id_kelas=<?= $id_kelas; ?>">
+    <div class="form-group mb-2">
+        <label>Nama Kelas</label>
+        <input value="<?= $data['nama_kelas'] ?>" type="text" name="nama_kelas" class="form-control" required>
+        </div>
+        <div class="form-group mb-2">
+        <label>Kompetensi Keahlian</label>
+        <input value="<?= $data['kompetensi_keahlian'] ?>" type="text" name="kompetensi_keahlian" class="form-control" required>
+        </div>
+        <div class="form-group">
+        <button type="submit" class="btn btn-success"> Simpan </button>
+        <button type="reset" class="btn btn-warning"> Kosongkan </button>
+        </div>
+        </form>
