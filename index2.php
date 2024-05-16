@@ -18,11 +18,11 @@
                     <div class="card-body">
                         <form action="proses-login-petugas.php" method="post">
                             <div class="form-group mb-2">
-                                <label>username</label>
+                                <label>Username</label>
                                 <input type="text" name="username" class="form-control" placeholder="masukkan username anda..." required>
                             </div>
                             <div class="form-group mb-2">
-                                <label>password</label>
+                                <label>Password</label>
                                 <input type="text" name="password" class="form-control" placeholder="masukkan password anda..." required>
                             </div>
                             <div class="form-group mb-2">
