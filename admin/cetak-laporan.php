@@ -1,9 +1,10 @@
 <?php
-$nisn = $_GET['nisn'];
+header("Content-type: application/vnd-ms-excel");
+header("Content-Disposition: attachment; filename=Laporan-Pembayaran-SPP.xls");
 ?>
-<h5>history pembayaran</h5>
+<h5>laporan pembayaran SPP</h5>
 <hr>
-<table class="table table-striped table-border">
+<table border="1" class="table table-striped table-border">
     <tr class="fw-bold">
         <td>No</td>
         <td>NISN</td>
@@ -14,12 +15,11 @@ $nisn = $_GET['nisn'];
         <td>Sudah Dibayar</td>
         <td>Tanggal Bayar</td>
         <td>Petugas</td>
-        <td>Hapus</td>
     </tr>
     <?php
     include '../koneksi.php';
     $no = 1;
-    $sql = "select * from pembayaran,siswa,kelas,spp,petugas where pembayaran.nisn=siswa.nisn and siswa.id_kelas=kelas.id_kelas and pembayaran.id_spp=spp.id_spp and pembayaran.id_petugas=petugas.id_petugas and pembayaran.nisn='$nisn' order by tgl_bayar desc";
+    $sql = "select * from pembayaran,siswa,kelas,spp,petugas where pembayaran.nisn=siswa.nisn and siswa.id_kelas=kelas.id_kelas and pembayaran.id_spp=spp.id_spp and pembayaran.id_petugas=petugas.id_petugas order by tgl_bayar desc";
     $query = mysqli_query($koneksi, $sql);
     foreach($query as $data){ 
         
@@ -34,9 +34,6 @@ $nisn = $_GET['nisn'];
             <td><?= number_format($data['jumlah_bayar'],2,',','.'); ?></td>
             <td><?= $data['tgl_bayar'] ?></td>
             <td><?= $data['nama_petugas'] ?></td>
-            <td>
-                <a href="?url=hapus-pembayaran&id_pembayaran=<?= $data['id_pembayaran'] ?>" class="btn btn-danger"> Hapus </a>
-            </td>
         </tr>
     <?php } ?>
     
